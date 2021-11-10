@@ -4,11 +4,7 @@ import android.content.Context
 import androidx.fragment.app.DialogFragment
 import com.png.interview.dagger.component.FragmentComponent
 import com.png.interview.dagger.module.FragmentModule
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
 
-@FlowPreview
-@ExperimentalCoroutinesApi
 abstract class InjectedDialogFragment : DialogFragment() {
 
     lateinit var fragmentComponent: FragmentComponent

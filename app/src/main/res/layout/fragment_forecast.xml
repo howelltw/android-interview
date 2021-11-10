@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewBinder"
+            type="com.png.interview.weather.ui.binder.ForecastFragmentViewBinder" />
+
+        <variable
+            name="adapter"
+            type="com.png.interview.weather.ui.adapter.ForecastAdapter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".weather.ui.fragment.ForecastFragment">
+
+        <TextView
+            android:id="@+id/tv_forecast"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/forecast"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/error_retrieving_forecast_info"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_forecast"
+            app:layout_constraintVertical_bias="0.3"
+            app:visible="@{viewBinder.hasError}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_forecast"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:overScrollMode="never"
+            android:paddingTop="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_forecast"
+            app:setAdapter="@{adapter}"
+            app:visible="@{!viewBinder.hasError}"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_forecast" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

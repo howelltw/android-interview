@@ -8,6 +8,7 @@ import androidx.preference.PreferenceManager
 import com.png.interview.dagger.scope.ApplicationScope
 import com.png.interview.weather.di.WeatherApiModule
 import com.png.interview.weather.di.WeatherUseCaseModule
+import com.png.interview.weather.pref.UserPreferences
 
 import dagger.Module
 import dagger.Provides
@@ -29,6 +30,12 @@ class AppModule(val application: Application) {
     @Provides
     @ApplicationScope
     fun provideSharedPreferences(): SharedPreferences = PreferenceManager.getDefaultSharedPreferences(application)
+
+    @Provides
+    @ApplicationScope
+    fun provideUserPreferences(
+        application: Application
+    ): UserPreferences = UserPreferences(application.applicationContext)
 
     @Provides
     @ApplicationScope

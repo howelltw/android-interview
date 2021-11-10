@@ -7,15 +7,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.png.interview.dagger.component.FragmentComponent
 import com.png.interview.dagger.module.FragmentModule
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
 import javax.inject.Inject
 
-@FlowPreview
-@ExperimentalCoroutinesApi
 abstract class InjectedFragment : Fragment() {
 
-    @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
     lateinit var fragmentComponent: FragmentComponent
 
     override fun onAttach(context: Context) {

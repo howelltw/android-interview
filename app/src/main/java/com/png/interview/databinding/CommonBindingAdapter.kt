@@ -8,6 +8,7 @@ import android.view.View.VISIBLE
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import coil.load
 
 object CommonBindingAdapter {
@@ -38,4 +39,14 @@ object CommonBindingAdapter {
                 }
         }
     }
+
+    @JvmStatic
+    @BindingAdapter("setAdapter")
+    fun bindRecyclerViewAdapter(view: RecyclerView, recyclerViewAdapter: RecyclerView.Adapter<*>) {
+        view.apply {
+            adapter = recyclerViewAdapter
+        }
+    }
+
+
 }

@@ -1,48 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto">
-	<data>
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-	</data>
-	<androidx.constraintlayout.widget.ConstraintLayout
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:padding="16dp">
+    <data>
 
-		<TextView
-			android:id="@+id/tv_units"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textStyle="bold"
-			android:textSize="16sp"
-			android:text="@string/units"
-			app:layout_constraintTop_toTopOf="@id/rd_group"
-			app:layout_constraintBottom_toBottomOf="@id/rd_group"
-			app:layout_constraintStart_toStartOf="parent"/>
+        <import type="com.png.interview.weather.ui.model.TemperatureUnit" />
 
-		<RadioGroup
-			android:id="@+id/rd_group"
-			android:layout_width="0dp"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal"
-			android:layout_marginStart="16dp"
-			android:dividerPadding="8dp"
-			android:showDividers="middle"
-			app:layout_constraintTop_toTopOf="parent"
-			app:layout_constraintStart_toEndOf="@id/tv_units"
-			app:layout_constraintEnd_toEndOf="parent">
+        <variable
+            name="viewBinder"
+            type="com.png.interview.weather.ui.binder.SettingsFragmentViewBinder" />
+    </data>
 
-			<RadioButton
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="@string/imperial" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
-			<RadioButton
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="@string/metric" />
+        <TextView
+            android:id="@+id/tv_units"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/units"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/rd_group"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/rd_group" />
 
-		</RadioGroup>
+        <RadioGroup
+            android:id="@+id/rd_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:dividerPadding="8dp"
+            android:orientation="horizontal"
+            android:showDividers="middle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_units"
+            app:layout_constraintTop_toTopOf="parent">
 
-	</androidx.constraintlayout.widget.ConstraintLayout>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{viewBinder.imperialSelected}"
+                android:onClick="@{() -> viewBinder.imperialClicked()}"
+                android:text="@string/imperial" />
+<!--                android:checked="@{viewBinder.tempUnit == TemperatureUnit.Imperial.INSTANCE.unit}"-->
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{!viewBinder.imperialSelected}"
+                android:onClick="@{() -> viewBinder.metricClicked()}"
+                android:text="@string/metric" />
+<!--                android:checked="@{viewBinder.tempUnit == `Metric`}"-->
+<!--                android:checked="@{viewBinder.tempUnit == TemperatureUnit.Metric.INSTANCE.unit}"-->
+
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

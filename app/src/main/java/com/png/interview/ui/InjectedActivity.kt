@@ -8,12 +8,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.png.interview.App
 import com.png.interview.dagger.component.ActivityComponent
 import com.png.interview.dagger.module.ActivityModule
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
 import javax.inject.Inject
 
-@FlowPreview
-@ExperimentalCoroutinesApi
 abstract class InjectedActivity : AppCompatActivity() {
 
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory

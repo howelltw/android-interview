@@ -1,4 +1,4 @@
-package com.png.interview.weather.domain
+package com.png.interview.weather.domain.weather_data
 
 import com.png.interview.api.common_model.NetworkResponse
 import com.png.interview.weather.api.WeatherApi
