@@ -22,6 +22,10 @@ class CurrentWeatherViewModel @Inject constructor(
         }
     }
 
+    fun resetCurrentWeatherState() {
+        _currentWeatherViewRepresentation.value = CurrentWeatherViewRepresentation.Empty
+    }
+
     val availableCurrentWeatherLiveData =
         _currentWeatherViewRepresentation
             .map { (it as? CurrentWeatherViewRepresentation.AvailableWeatherViewRep)?.data }

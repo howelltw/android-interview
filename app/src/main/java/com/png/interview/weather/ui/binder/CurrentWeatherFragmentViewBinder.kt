@@ -29,6 +29,9 @@ class CurrentWeatherFragmentViewBinder(
     }
 
     fun goClicked() {
+        // This will reset any previous error states back to a more appropriate 'Empty' state.
+        viewModel.resetCurrentWeatherState()
+
         if (input.isEmpty()) {
             Toast.makeText(activity, "Please Enter Query", Toast.LENGTH_LONG).show()
         } else if (input.length < 3) {
