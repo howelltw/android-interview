@@ -5,6 +5,7 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.png.interview.weather.domain.CreateCurrentWeatherRepFromQueryUseCase
 import com.png.interview.weather.ui.model.CurrentWeatherViewRepresentation
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
@@ -17,7 +18,7 @@ class CurrentWeatherViewModel @Inject constructor(
     private val _currentWeatherViewRepresentation = MutableStateFlow<CurrentWeatherViewRepresentation>(CurrentWeatherViewRepresentation.Empty)
 
     fun submitCurrentWeatherSearch(query: String) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             _currentWeatherViewRepresentation.value = createCurrentWeatherRepFromQueryUseCase(query)
         }
     }
