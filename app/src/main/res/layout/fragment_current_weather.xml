@@ -33,7 +33,7 @@
 		<include
 			layout="@layout/view_current_weather_available"
 			android:id="@+id/view_current_weather_available"
-			android:layout_height="200dp"
+			android:layout_height="wrap_content"
 			android:layout_width="match_parent"
 			android:layout_marginTop="8dp"
 			app:viewData="@{viewBinder.availableWeatherViewData}"
@@ -42,10 +42,19 @@
 		<include
 			layout="@layout/view_current_weather_empty"
 			android:id="@+id/view_current_weather_empty"
-			android:layout_height="200dp"
+			android:layout_height="wrap_content"
 			android:layout_width="match_parent"
 			android:layout_marginTop="8dp"
 			app:emptyVisible="@{viewBinder.isEmpty}"
+			app:layout_constraintTop_toBottomOf="@id/et_input" />
+
+		<include
+			layout="@layout/view_current_weather_error"
+			android:id="@+id/view_current_weather_error"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:layout_marginTop="8dp"
+			app:errorVisible="@{viewBinder.isError}"
 			app:layout_constraintTop_toBottomOf="@id/et_input" />
 
 		<androidx.constraintlayout.widget.Barrier
@@ -59,7 +68,7 @@
 			android:id="@+id/btn_refresh"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="8dp"
+			android:layout_marginVertical="8dp"
 			android:text="@string/refresh"
 			android:onClick="@{() -> viewBinder.refreshClicked()}"
 			android:layout_marginEnd="4dp"
@@ -73,7 +82,7 @@
 			android:id="@+id/btn_forecast"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="8dp"
+			android:layout_marginVertical="8dp"
 			android:text="@string/see_forecast"
 			android:layout_marginStart="4dp"
 			android:onClick="@{() -> viewBinder.seeForecastClicked()}"
@@ -87,6 +96,8 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:onClick="@{() -> viewBinder.settingsClicked()}"
+			app:layout_constraintVertical_bias="1.0"
+			app:layout_constraintTop_toBottomOf="@id/btn_refresh"
 			app:layout_constraintBottom_toBottomOf="parent"
 			android:text="@string/settings" />
 

@@ -12,6 +12,7 @@ class CurrentWeatherFragmentViewBinder(
 
     val availableWeatherViewData = viewModel.availableCurrentWeatherLiveData
     val isEmpty = viewModel.isEmptyVisible
+    val isError = viewModel.isErrorVisible
 
     var input: String = ""
 
@@ -28,6 +29,9 @@ class CurrentWeatherFragmentViewBinder(
     }
 
     fun goClicked() {
+        // This will reset any previous error states back to a more appropriate 'Empty' state.
+        viewModel.resetCurrentWeatherState()
+
         if (input.isEmpty()) {
             Toast.makeText(activity, "Please Enter Query", Toast.LENGTH_LONG).show()
         } else if (input.length < 3) {
