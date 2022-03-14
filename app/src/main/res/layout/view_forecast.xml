@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="8dp"
+      app:visible="@{viewData != null}" >
+
+      <TextView
+        android:id="@+id/tv_forecast_date_label"
+        style="@style/TextViewLabelStyle"
+        android:layout_marginTop="0dp"
+        android:text="@string/date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+        android:id="@+id/tv_forecast_date_value"
+        style="@style/TextViewValueStyle"
+        android:text="@{viewData.date}"
+        app:layout_constraintBottom_toBottomOf="@id/tv_forecast_date_label"
+        app:layout_constraintStart_toEndOf="@id/tv_forecast_date_label"
+        app:layout_constraintTop_toTopOf="@id/tv_forecast_date_label"
+        tools:text="2022-04-23" />
+
+      <TextView
+        android:id="@+id/tv_min_temp_label"
+        style="@style/TextViewIndentLabelStyle"
+        android:text="@string/min_temp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_forecast_date_label" />
+
+      <TextView
+        android:id="@+id/tv_min_temp_value"
+        style="@style/TextViewValueStyle"
+        android:text="@{viewData.minTemperature}"
+        app:layout_constraintBottom_toBottomOf="@id/tv_min_temp_label"
+        app:layout_constraintStart_toEndOf="@id/tv_min_temp_label"
+        app:layout_constraintTop_toTopOf="@id/tv_min_temp_label"
+        tools:text="64F" />
+
+      <TextView
+        android:id="@+id/tv_max_temp_label"
+        style="@style/TextViewIndentLabelStyle"
+        android:text="@string/max_temp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_min_temp_label" />
+
+      <TextView
+        android:id="@+id/tv_temp_value"
+        style="@style/TextViewValueStyle"
+        android:text="@{viewData.maxTemperature}"
+        app:layout_constraintBottom_toBottomOf="@id/tv_max_temp_label"
+        app:layout_constraintStart_toEndOf="@id/tv_max_temp_label"
+        app:layout_constraintTop_toTopOf="@id/tv_max_temp_label"
+        tools:text="95F" />
+
+      <TextView
+        android:id="@+id/tv_wind_speed_label"
+        style="@style/TextViewIndentLabelStyle"
+        android:text="@string/wind_speed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_max_temp_label" />
+
+      <TextView
+        android:id="@+id/tv_wind_speed_value"
+        style="@style/TextViewValueStyle"
+        android:text="@{viewData.windSpeed}"
+        app:layout_constraintBottom_toBottomOf="@id/tv_wind_speed_label"
+        app:layout_constraintStart_toEndOf="@id/tv_wind_speed_label"
+        app:layout_constraintTop_toTopOf="@id/tv_wind_speed_label"
+        tools:text="15 MPH" />
+
+      <TextView
+        android:id="@+id/tv_condition"
+        style="@style/TextViewIndentLabelStyle"
+        android:text="@string/condition"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_wind_speed_label" />
+
+      <TextView
+        android:id="@+id/tv_condition_value"
+        style="@style/TextViewValueStyle"
+        android:text="@{viewData.condition}"
+        app:layout_constraintBottom_toBottomOf="@id/tv_condition"
+        app:layout_constraintStart_toEndOf="@id/tv_condition"
+        app:layout_constraintTop_toTopOf="@id/tv_condition"
+        tools:text="Partly Cloudy" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.cardview.widget.CardView>
+
+  <data>
+
+    <variable
+      name="viewData"
+      type="com.png.interview.weather.ui.model.ForecastViewData" />
+  </data>
+</layout>
