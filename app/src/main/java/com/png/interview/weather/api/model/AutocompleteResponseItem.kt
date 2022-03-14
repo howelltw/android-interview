@@ -1,6 +1,6 @@
 package com.png.interview.weather.api.model
 
-data class AutcompleteResponseItem(
+data class AutocompleteResponseItem(
     val country: String,
     val id: Int,
     val lat: Double,
