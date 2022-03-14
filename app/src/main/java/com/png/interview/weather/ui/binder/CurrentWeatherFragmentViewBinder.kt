@@ -7,6 +7,7 @@ import com.png.interview.weather.ui.viewmodel.CurrentWeatherViewModel
 class CurrentWeatherFragmentViewBinder(
     private val viewModel: CurrentWeatherViewModel,
     private val activity: Activity,
+    private val forecastAction: (String) -> Unit,
     private val settingsAction: () -> Unit
 ) {
 
@@ -15,6 +16,7 @@ class CurrentWeatherFragmentViewBinder(
     val isError = viewModel.isErrorVisible
 
     var input: String = ""
+    // This will not survive config change, etc., but works for the simple case.
     var savedInput: String = ""
 
     fun refreshClicked() {
@@ -26,7 +28,11 @@ class CurrentWeatherFragmentViewBinder(
     }
 
     fun seeForecastClicked() {
-        Toast.makeText(activity, "Forecast Clicked TODO", Toast.LENGTH_LONG).show()
+        if (savedInput.isNotBlank()) {
+            forecastAction(savedInput)
+        } else {
+            goClicked()
+        }
     }
 
     fun settingsClicked() {

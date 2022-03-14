@@ -17,6 +17,9 @@ class CurrentWeatherFragment : InjectedFragment() {
             viewBinder = CurrentWeatherFragmentViewBinder(
                 getViewModel(),
                 requireActivity(),
+                forecastAction = { cityCode ->
+                    findNavController().navigate(CurrentWeatherFragmentDirections.actionCurrentWeatherFragmentToForecastFragment(cityCode))
+                },
                 settingsAction = {
                     findNavController().navigate(CurrentWeatherFragmentDirections.actionCurrentWeatherFragmentToSettingsFragment())
                 }
