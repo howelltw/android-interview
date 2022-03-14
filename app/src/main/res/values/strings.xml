@@ -19,6 +19,7 @@
 	<string name="enter_zip_or_city">Enter Zip or City</string>
 	<string name="refresh">Refresh</string>
 	<string name="see_forecast">See Forecast</string>
+	<string name="forecast">Forecast</string>
 	<string name="settings">Settings</string>
 	<string name="please_enter_zip_or_city">Please enter a zip code or a city.</string>
 	<string name="imperial">Imperial</string>
@@ -26,4 +27,7 @@
 	<string name="units">Units</string>
 	<string name="name">Name</string>
   <string name="weather_error">Error occurred retrieving weather information.</string>
+  <string name="date">Date:</string>
+	<string name="min_temp">Min Temperature:</string>
+	<string name="max_temp">Max Temperature:</string>
 </resources>
