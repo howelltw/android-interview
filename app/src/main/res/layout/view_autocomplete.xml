@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+    <variable
+      name="viewData"
+      type="com.png.interview.weather.ui.model.AutocompleteViewData" />
+  </data>
+
+  <androidx.cardview.widget.CardView
+    android:id="@+id/cv_autocomplete_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp" >
+
+    <TextView
+      android:id="@+id/tv_autocomplete_location"
+      style="@style/TextViewLabelStyle"
+      android:layout_marginTop="0dp"
+      android:padding="8dp"
+      android:text="@{viewData.locationName}"
+      tools:text="Solana, California, United States of America"/>
+  </androidx.cardview.widget.CardView>
+</layout>
