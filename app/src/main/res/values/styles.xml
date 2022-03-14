@@ -47,6 +47,10 @@
 		<item name="android:layout_marginTop">8dp</item>
 	</style>
 
+	<style name="TextViewIndentLabelStyle" parent="TextViewLabelStyle">
+		<item name="android:layout_marginStart">4dp</item>
+	</style>
+
 	<style name="TextViewValueStyle">
 		<item name="android:layout_width">wrap_content</item>
 		<item name="android:layout_height">wrap_content</item>
