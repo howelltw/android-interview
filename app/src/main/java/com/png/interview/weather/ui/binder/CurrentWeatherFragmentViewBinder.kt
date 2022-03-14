@@ -16,20 +16,18 @@ class CurrentWeatherFragmentViewBinder(
     val isError = viewModel.isErrorVisible
 
     var input: String = ""
-    // This will not survive config change, etc., but works for the simple case.
-    var savedInput: String = ""
 
     fun refreshClicked() {
-        if (savedInput.isNotBlank()) {
-            viewModel.submitCurrentWeatherSearch(savedInput)
+        if (viewModel.savedInput.isNotBlank()) {
+            viewModel.submitCurrentWeatherSearch(viewModel.savedInput)
         } else {
             goClicked()
         }
     }
 
     fun seeForecastClicked() {
-        if (savedInput.isNotBlank()) {
-            forecastAction(savedInput)
+        if (viewModel.savedInput.isNotBlank()) {
+            forecastAction(viewModel.savedInput)
         } else {
             goClicked()
         }
@@ -48,7 +46,7 @@ class CurrentWeatherFragmentViewBinder(
         } else if (input.length < 3) {
             Toast.makeText(activity, "Please Enter More than 3 Characters", Toast.LENGTH_LONG).show()
         } else {
-            savedInput = input
+            viewModel.savedInput = input
             viewModel.submitCurrentWeatherSearch(input)
         }
     }

@@ -15,6 +15,7 @@ class CurrentWeatherViewModel @Inject constructor(
     private val createCurrentWeatherRepFromQueryUseCase: CreateCurrentWeatherRepFromQueryUseCase
 ) : ViewModel() {
 
+    var savedInput: String = ""
     private val _currentWeatherViewRepresentation = MutableStateFlow<CurrentWeatherViewRepresentation>(CurrentWeatherViewRepresentation.Empty)
 
     fun submitCurrentWeatherSearch(query: String) {
