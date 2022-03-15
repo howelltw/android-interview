@@ -35,7 +35,7 @@
 			android:id="@+id/autocomplete_wrapper"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:visibility="gone"
+			app:visible="@{viewBinder.availableWeatherViewData == null}"
 			app:layout_constraintTop_toBottomOf="@id/et_input"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintEnd_toEndOf="parent"
